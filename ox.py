@@ -28,12 +28,22 @@ while winner is None:   # Loop until someone wins
         break
 
     # Ask the player to pick a square.
-    pick = raw_input(player+" pick a square: ")
+    #pick = raw_input(player+" pick a square: ")
+
+
     # TODO: What if the square is already taken?
     # TODO: What if they pick a number that is not on the grid?
 
     # Change the value of the square in the dictionary to either 'x' or 'o' (depending on who's playing).
-    grid_dic[pick] = player
+    n=0
+    while n==0:
+        pick = raw_input(player + " pick a square: ")
+        if isinstance(grid_dic[pick], int):
+            grid_dic[pick] = player
+            n=1
+        else:
+            print("Square already filled")
+
 
     # Print the grid again. TODO: This code is repeated from above, it should be a function
     print " ", grid_dic['1'],"|", grid_dic['2'],"|", grid_dic['3']
